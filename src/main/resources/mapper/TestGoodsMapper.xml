@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coding.huang.dao.test.TestGoodsDao">
+
+    <insert id="insertTestGoodsData" parameterType="Object">
+        insert into testgoods(goods_id,goods_name,goods_info) VALUES (#{goodsId},#{goodsName},#{goodsInfo})
+    </insert>
+
+    <update id="updateTestGoodsData" parameterType="Object">
+        update testgoods SET goods_info = #{goodsInfo} WHERE goods_id = #{goodsId}
+    </update>
+
+    <delete id="deleteTestGoodsData" parameterType="Object">
+        DELETE FROM testgoods WHERE goods_id = #{goodsId}
+    </delete>
+    <select id="selectTestGoodsById" parameterType="Object" resultType="com.coding.huang.domain.TestGoods">
+        SELECT * FROM testgoods WHERE goods_id = #{goodsId}
+    </select>
+</mapper>

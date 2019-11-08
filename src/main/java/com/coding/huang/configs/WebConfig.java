@@ -1,5 +1,6 @@
 package com.coding.huang.configs;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,16 +23,24 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer{
 
 
+    @Autowired
+    CommonInterceptor commonInterceptor;
+
+    @Autowired
+    UserArgumentResolver userArgumentResolver;
+
+
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         //参数处理
+        resolvers.add(userArgumentResolver);
 
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //添加拦截器
-
+        //添加拦截器 添加所有路径 放行特定路径(静态资源，以及其他特定的url)
+        registry.addInterceptor(commonInterceptor).addPathPatterns("/**").excludePathPatterns("/static/**");
     }
 
 

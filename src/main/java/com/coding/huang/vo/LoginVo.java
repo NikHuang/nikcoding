@@ -4,6 +4,7 @@ import com.coding.huang.annotations.login.IsMobile;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.NonNull;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -11,11 +12,11 @@ import javax.validation.constraints.NotNull;
  */
 public class LoginVo {
 
-    @NotNull(message = "账号不可为空")
+    @NotEmpty(message = "账号不可为空")
     @IsMobile
     private String loginAccount;
 
-    @NotNull(message = "密码不可为空")
+    @NotEmpty(message = "密码不可为空")
     private String loginPwd;
 
 

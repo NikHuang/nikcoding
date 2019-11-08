@@ -1,0 +1,4 @@
+1.一个service应该只允许直接调用自己直属的dao
+比如 userService 调用 userDao
+但是 如果发生需要调用其他dao的情况的话 需要连同service一起调用
+不要直接调用dao 主要是为了避免出现缓存问题

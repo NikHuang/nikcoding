@@ -18,7 +18,7 @@ spring:
       #mysql驱动
       driver-class-name: com.mysql.jdbc.Driver
       #基本属性
-      url: jdbc:mysql://192.168.2.3:3306/seckilldb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&?zeroDateTimeBehavior=convertToNull
+      url: jdbc:mysql://192.168.2.3:3306/frameworkdemo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&?zeroDateTimeBehavior=convertToNull
       username: root
       password: root
       #配置初始化大小/最小/最大
@@ -49,7 +49,9 @@ spring:
       enabled: true
       gzipped: true
       html-application-cache: true
-    static-locations: classpath:/static/
+#    static-locations: classpath:/static/
+#     配置静态资源 由于要结合 拦截器 所以放弃上一行的配置
+    static-locations: classpath:/
 #  mvc:
 #    static-path-pattern: /static/**
 #mybatis配置

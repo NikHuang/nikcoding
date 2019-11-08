@@ -1,0 +1,7 @@
+@Around和@Transactional是关联的
+@Around中抛出异常 @Transactional也不提交数据
+
+日志记录 按模块划分
+目前已知模块
+1.一般模块
+登录操作记录（who when）

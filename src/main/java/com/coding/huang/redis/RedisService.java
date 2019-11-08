@@ -80,6 +80,16 @@ public class RedisService {
             returnToPool(jedis);
         }
     }
+    public <T> void delete(KeyPrefix prefix,String key){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            String realKey = prefix.getPrefix()+key;
+            jedis.del(realKey);
+        }finally {
+            returnToPool(jedis);
+        }
+    }
     //
     private <T> String BeanToStr(T value) {
         if(value == null){

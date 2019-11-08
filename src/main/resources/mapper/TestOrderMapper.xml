@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coding.huang.dao.test.TestOrderDao">
+
+    <insert id="insertTestOrderData" parameterType="Object">
+        insert into testorder(order_id,goods_id,order_info) VALUES (#{orderId},#{goodsId},#{orderInfo})
+    </insert>
+
+    <update id="updateTestOrderData" parameterType="Object">
+        update testorder SET order_info = #{orderInfo} WHERE order_id = #{orderId}
+    </update>
+
+    <delete id="deleteTestOrderData" parameterType="Object">
+        DELETE FROM testorder WHERE order_id = #{orderId}
+    </delete>
+</mapper>
